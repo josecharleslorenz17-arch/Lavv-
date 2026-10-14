@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lavv — Our Little Space</title>
+<style>
+:root{--bg:#0d1014;--panel:#151a20;--panel2:#1c222a;--line:#2b333d;--cream:#f3e9dc;--muted:#a9adb5;--rose:#d9a9a1}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--cream);font:15px/1.5 system-ui,-apple-system,Segoe UI,sans-serif}
+header{height:68px;display:flex;align-items:center;justify-content:space-between;padding:0 5%;border-bottom:1px solid var(--line);position:sticky;top:0;background:#0d1014ee;backdrop-filter:blur(12px);z-index:2}
+.logo{font-family:Georgia,serif;font-style:italic;font-size:32px;letter-spacing:1px}.nav{display:flex;gap:20px}.nav a{color:var(--muted);text-decoration:none}.nav a:hover{color:var(--cream)}
+.hero{min-height:260px;display:grid;place-items:center;text-align:center;padding:45px 20px;background:linear-gradient(0deg,#0d1014 0%,#0d101488 30%,#0d101466),radial-gradient(ellipse at 20% 75%,#875044 0,transparent 45%),radial-gradient(ellipse at 80% 20%,#34364f 0,transparent 50%),linear-gradient(130deg,#282c39,#503a3d 50%,#10151e)}
+.hero h1{font:italic clamp(48px,8vw,78px) Georgia,serif;margin:0}.hero p{color:#e5d9d0;margin:8px auto;max-width:520px}.heart{color:var(--rose)}
+main{max-width:1180px;margin:28px auto;padding:0 18px;display:grid;grid-template-columns:210px minmax(0,1fr) 220px;gap:20px}
+.panel,.post,.composer{background:var(--panel);border:1px solid var(--line);border-radius:15px}
+.panel{padding:18px;height:max-content}.profile{font-size:18px;font-weight:650}.muted{color:var(--muted);font-size:13px}.side-link{padding:10px 0;color:#d8d5d1}
+.composer{padding:16px;margin-bottom:16px}.composer label{display:block;font-weight:600;margin-bottom:8px}.composer textarea{width:100%;resize:vertical;min-height:74px;background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:12px;color:var(--cream);font:inherit}.controls{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:10px}.controls input[type=file]{max-width:100%;font-size:12px;color:var(--muted)}button{border:0;border-radius:9px;background:var(--cream);color:#201c1a;font-weight:700;padding:10px 15px;cursor:pointer}button.secondary{background:var(--panel2);border:1px solid var(--line);color:var(--cream)}button:hover{filter:brightness(1.08)}
+.feed{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.post{overflow:hidden}.post-head{display:flex;justify-content:space-between;padding:13px 14px 8px}.post img{width:100%;max-height:320px;object-fit:cover;display:block;background:var(--panel2)}.post-body{padding:12px 14px}.post-body p{margin:0 0 12px;white-space:pre-wrap;overflow-wrap:anywhere}.post-foot{display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:12px}.empty{grid-column:1/-1;text-align:center;padding:38px 20px;color:var(--muted);border:1px dashed var(--line);border-radius:14px}
+.stat{display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid var(--line);font-size:13px}.stat:last-child{border:0}.quote{font:italic 15px Georgia,serif;color:#d8c6c0;margin-top:20px}
+footer{text-align:center;color:var(--muted);border-top:1px solid var(--line);padding:20px;margin-top:25px;font-size:13px}
+@media(max-width:850px){main{grid-template-columns:1fr}.left,.right{display:none}.feed{grid-template-columns:repeat(2,minmax(0,1fr))}.nav{gap:10px;font-size:13px}}
+@media(max-width:540px){header{padding:0 16px}.nav a:nth-child(n+2){display:none}.hero{min-height:230px}.feed{grid-template-columns:1fr}main{padding:0 12px;margin-top:16px}.post img{max-height:360px}}
+</style></head>
+<body>
+<header><div class="logo">Lavv <span class="heart">♡</span></div><nav class="nav"><a href="#home">Home</a><a href="#gallery">Our Gallery</a><a href="#upload">Upload</a></nav><span aria-label="heart">♡</span></header>
+<section class="hero" id="home"><div><h1>Lavv</h1><div class="heart" style="font-size:25px">♡</div><p><strong>Same sky, different places, but always connected.</strong></p><p>Our little space to share moments, update each other, and keep our story alive — no matter the distance.</p></div></section>
+<main>
+<aside class="panel left"><div style="font-size:34px">♡</div><div class="profile">You & Lavv</div><div class="muted">You + Me = Always ♡</div><hr style="border-color:var(--line);margin:18px 0"><div class="side-link">⌂ &nbsp; Home</div><div class="side-link">▧ &nbsp; Our Gallery</div><div class="side-link">♡ &nbsp; Little updates</div><div class="quote">“Different places, same dreams.”</div></aside>
+<section>
+<div class="composer" id="upload"><label for="caption">Share a moment with your partner ♡</label><textarea id="caption" placeholder="What are you up to today? Write a little update..."></textarea><div class="controls"><input id="photo" type="file" accept="image/*" multiple><button id="publish">Post update ♡</button><span class="muted">Choose one or more photos</span></div><p class="muted" style="margin-bottom:0">Demo note: posts are saved only in this browser for now.</p></div>
+<div class="feed" id="gallery"><div class="empty" id="empty">Your little story starts here. Upload a photo or write your first update. ♡</div></div>
+</section>
+<aside class="panel right"><strong>Our Little Space</strong><div class="stat"><span>Photos in this browser</span><b id="count">0</b></div><div class="stat"><span>Updates</span><b id="updates">0</b></div><div class="quote">“No matter how far, we're always a click away. ♡”</div><hr style="border-color:var(--line);margin:18px 0"><div class="muted">A space made with love.</div><button class="secondary" id="clear" style="margin-top:12px;width:100%">Clear local posts</button></aside>
+</main><footer>Made with love ♡ &nbsp; Lavv</footer>
+<script>
+const feed=document.querySelector('#gallery'), caption=document.querySelector('#caption'), photo=document.querySelector('#photo');
+let posts=[];
+function safe(s){return s.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+function render(){feed.innerHTML='';document.querySelector('#count').textContent=posts.reduce((n,p)=>n+p.images.length,0);document.querySelector('#updates').textContent=posts.length;
+if(!posts.length){feed.innerHTML='<div class="empty">Your little story starts here. Upload a photo or write your first update. ♡</div>';return}
+posts.forEach(p=>{const card=document.createElement('article');card.className='post';card.innerHTML=`<div class="post-head"><div><strong>${safe(p.author)}</strong><div class="muted">${safe(p.date)}</div></div><span class="heart">♡</span></div>${p.images.map(src=>`<img src="${src}" alt="Shared memory">`).join('')}<div class="post-body"><p>${safe(p.text||'A little moment to remember. ♡')}</p><div class="post-foot"><span>♡ A memory with you</span><button class="secondary" data-delete="${p.id}">Delete</button></div></div>`;feed.appendChild(card);});
+feed.querySelectorAll('[data-delete]').forEach(b=>b.onclick=()=>{posts=posts.filter(p=>p.id!==b.dataset.delete);persist();render()})}
+function persist(){try{localStorage.setItem('lavvPosts',JSON.stringify(posts))}catch(e){alert('Your browser storage is full. Try fewer or smaller photos.');}}
+try{posts=JSON.parse(localStorage.getItem('lavvPosts')||'[]')}catch(e){posts=[]}render();
+document.querySelector('#publish').onclick=async()=>{const files=[...photo.files];if(!caption.value.trim()&&!files.length){alert('Write an update or choose a photo first, bro ♡');return}
+const images=await Promise.all(files.map(f=>new Promise(resolve=>{const r=new FileReader();r.onload=()=>resolve(r.result);r.readAsDataURL(f)})));
+posts.unshift({id:String(Date.now()),author:'You',date:new Date().toLocaleString(),text:caption.value.trim(),images});persist();render();caption.value='';photo.value='';};
+document.querySelector('#clear').onclick=()=>{if(confirm('Delete all posts saved in this browser?')){posts=[];persist();render()}};
+</script></body></html>
